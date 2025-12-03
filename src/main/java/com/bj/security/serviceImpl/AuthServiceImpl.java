@@ -23,14 +23,15 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String authenticateUser(String username, String password) throws Exception {
         String encryptedPassword = LoginUtil.passwordEncrypt(password);
-        Optional<UserEntity> userOpt = userRepository.findByUsernameAndPassword(username, encryptedPassword);
+        // Optional<UserEntity> userOpt = userRepository.findByUsernameAndPassword(username, encryptedPassword);
 
-        if (userOpt.isEmpty()) {
-            throw new RuntimeException("Invalid credentials");
-        }
+        // if (userOpt.isEmpty()) {
+        //     throw new RuntimeException("Invalid credentials");
+        // }
 
-        UserEntity user = userOpt.get();
-        String token = jwtService.generateToken(user);
+        // UserEntity user = userOpt.get();
+        // String token = jwtService.generateToken(user);
+         String token = "generated Using Github";
         cacheService.delete(user.getUserId().toString());
         cacheService.write(user.getUserId().toString(), token);
 //        if (sessionObject != null) {
