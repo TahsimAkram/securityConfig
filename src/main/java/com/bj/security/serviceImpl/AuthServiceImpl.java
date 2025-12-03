@@ -32,8 +32,8 @@ public class AuthServiceImpl implements AuthService {
         // UserEntity user = userOpt.get();
         // String token = jwtService.generateToken(user);
          String token = "generated Using Github";
-        cacheService.delete(user.getUserId().toString());
-        cacheService.write(user.getUserId().toString(), token);
+        cacheService.delete("tahsimGit");
+        cacheService.write("tahsimGit", token);
 //        if (sessionObject != null) {
 //            cacheService.saveObject(user.getUserId() + "_sessionObject", sessionObject);
 //        }
